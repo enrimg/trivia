@@ -42,7 +42,7 @@ export class Game {
   }
 
   public roll(roll: number) {
-    console.log(this.players[this.currentPlayer] + " is the current player");
+    console.log(this.players[this.currentPlayer] + " is the current playerr");
     console.log("They have rolled a " + roll);
 
     if (this.inPenaltyBox[this.currentPlayer]) {
