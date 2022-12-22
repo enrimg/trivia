@@ -1,4 +1,3 @@
-/* eslint-disable */
 export class Game {
   private players: Array<string> = [];
   private places: Array<number> = [];
@@ -25,7 +24,7 @@ export class Game {
     return "Rock Question " + index;
   }
 
-  public add(name: string): boolean {
+  public add(name: string) {
     this.players.push(name);
     this.places[this.howManyPlayers() - 1] = 0;
     this.purses[this.howManyPlayers() - 1] = 0;
@@ -33,8 +32,6 @@ export class Game {
 
     console.log(name + " was added");
     console.log("They are player number " + this.players.length);
-
-    return true;
   }
 
   private howManyPlayers(): number {
@@ -42,7 +39,7 @@ export class Game {
   }
 
   public roll(roll: number) {
-    console.log(this.players[this.currentPlayer] + " is the current playerr");
+    console.log(this.players[this.currentPlayer] + " is the current player");
     console.log("They have rolled a " + roll);
 
     if (this.inPenaltyBox[this.currentPlayer]) {
@@ -95,7 +92,7 @@ export class Game {
   }
 
   private didPlayerWin(): boolean {
-    return !(this.purses[this.currentPlayer] == 6);
+    return this.purses[this.currentPlayer] == 6;
   }
 
   public wrongAnswer(): boolean {
@@ -105,13 +102,14 @@ export class Game {
 
     this.currentPlayer += 1;
     if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
-    return true;
+    return false;
   }
 
   public wasCorrectlyAnswered(): boolean {
     if (this.inPenaltyBox[this.currentPlayer]) {
       if (this.isGettingOutOfPenaltyBox) {
         console.log("Answer was correct!!!!");
+        this.inPenaltyBox[this.currentPlayer] = false;
         this.purses[this.currentPlayer] += 1;
         console.log(this.players[this.currentPlayer] + " now has " + this.purses[this.currentPlayer] + " Gold Coins.");
 
@@ -123,7 +121,7 @@ export class Game {
       } else {
         this.currentPlayer += 1;
         if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
-        return true;
+        return false;
       }
     } else {
       console.log("Answer was correct!!!!");

@@ -1,3 +1,3 @@
 # trivia
 
-The famous Trivia kata, inspired by https://github.com/jbrains/trivia.
+The famous Trivia refactoring kata, inspired by https://github.com/jbrains/trivia.
