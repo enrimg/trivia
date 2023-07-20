@@ -36,6 +36,7 @@ export class Game {
   }
 
   public roll(roll: number) {
+    console.log(`${this.players[this.currentPlayer]} is the current player`);
     if (this.inPenaltyBox[this.currentPlayer]) {
       if (roll % 2 != 0) {
         this.isGettingOutOfPenaltyBox = true;
@@ -44,7 +45,7 @@ export class Game {
         if (this.places[this.currentPlayer] > 11) {
           this.places[this.currentPlayer] = this.places[this.currentPlayer] - 12;
         }
-
+        console.log(`player ${this.players[this.currentPlayer]} placed in ${this.places[this.currentPlayer]}`);
         this.askQuestion();
       } else {
         this.isGettingOutOfPenaltyBox = false;
@@ -54,6 +55,7 @@ export class Game {
       if (this.places[this.currentPlayer] > 11) {
         this.places[this.currentPlayer] = this.places[this.currentPlayer] - 12;
       }
+      console.log(`player ${this.players[this.currentPlayer]} placed in ${this.places[this.currentPlayer]}`);
 
       this.askQuestion();
     }
@@ -85,35 +87,45 @@ export class Game {
 
   public wrongAnswer(): boolean {
     this.inPenaltyBox[this.currentPlayer] = true;
+    console.log(
+      `Question was incorrectly answered, player ${this.players[this.currentPlayer]} gets sent to the penalty box`
+    );
 
     this.currentPlayer += 1;
     if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
+    console.log(`next player is ${this.players[this.currentPlayer]}`);
+
     return false;
   }
 
   public wasCorrectlyAnswered(): boolean {
+    console.log(`this.currentPlayer ${this.currentPlayer} answered correctly`);
     if (this.inPenaltyBox[this.currentPlayer]) {
       if (this.isGettingOutOfPenaltyBox) {
         this.inPenaltyBox[this.currentPlayer] = false;
         this.purses[this.currentPlayer] += 1;
 
         var winner = this.didPlayerWin();
+        console.log(`player ${this.players[this.currentPlayer]} wins ${winner ? "yes" : "no"}`);
         this.currentPlayer += 1;
         if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
-
+        console.log(`next player is ${this.players[this.currentPlayer]}`);
         return winner;
       } else {
         this.currentPlayer += 1;
         if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
+        console.log(`next player is ${this.players[this.currentPlayer]}`);
         return false;
       }
     } else {
       this.purses[this.currentPlayer] += 1;
 
       var winner = this.didPlayerWin();
+      console.log(`player ${this.players[this.currentPlayer]} wins ${winner ? "yes" : "no"}`);
 
       this.currentPlayer += 1;
       if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
+      console.log(`next player is ${this.players[this.currentPlayer]}`);
 
       return winner;
     }

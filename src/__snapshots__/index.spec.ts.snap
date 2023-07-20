@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`All correct scenario 1`] = `
+Array [
+  "Mathieu is the current player",
+  "player Mathieu placed in 6",
+  "Sports Question 0",
+  "this.currentPlayer 0 answered correctly",
+  "player Mathieu wins no",
+  "next player is Thomas",
+  "Thomas is the current player",
+  "player Thomas placed in 1",
+  "Science Question 0",
+  "this.currentPlayer 1 answered correctly",
+  "player Thomas wins no",
+  "next player is Mathieu",
+  "Mathieu is the current player",
+  "player Mathieu placed in 10",
+  "Sports Question 1",
+  "this.currentPlayer 0 answered correctly",
+  "player Mathieu wins no",
+  "next player is Thomas",
+  "Thomas is the current player",
+  "player Thomas placed in 2",
+  "Sports Question 2",
+  "this.currentPlayer 1 answered correctly",
+  "player Thomas wins no",
+  "next player is Mathieu",
+  "Mathieu is the current player",
+  "player Mathieu placed in 1",
+  "Science Question 1",
+  "this.currentPlayer 0 answered correctly",
+  "player Mathieu wins no",
+  "next player is Thomas",
+]
+`;
+
+exports[`Wrong answer and even roll with correct answer scenario 1`] = `
+Array [
+  "Mathieu is the current player",
+  "player Mathieu placed in 6",
+  "Sports Question 0",
+  "this.currentPlayer 0 answered correctly",
+  "player Mathieu wins no",
+  "next player is Thomas",
+  "Thomas is the current player",
+  "player Thomas placed in 1",
+  "Science Question 0",
+  "this.currentPlayer 1 answered correctly",
+  "player Thomas wins no",
+  "next player is Mathieu",
+  "Mathieu is the current player",
+  "player Mathieu placed in 10",
+  "Sports Question 1",
+  "Question was incorrectly answered, player Mathieu gets sent to the penalty box",
+  "next player is Thomas",
+  "Thomas is the current player",
+  "player Thomas placed in 5",
+  "Science Question 1",
+  "this.currentPlayer 1 answered correctly",
+  "player Thomas wins no",
+  "next player is Mathieu",
+  "Mathieu is the current player",
+]
+`;
+
+exports[`Wrong answer scenario 1`] = `
+Array [
+  "Mathieu is the current player",
+  "player Mathieu placed in 6",
+  "Sports Question 0",
+  "this.currentPlayer 0 answered correctly",
+  "player Mathieu wins no",
+  "next player is Thomas",
+  "Thomas is the current player",
+  "player Thomas placed in 1",
+  "Science Question 0",
+  "this.currentPlayer 1 answered correctly",
+  "player Thomas wins no",
+  "next player is Mathieu",
+  "Mathieu is the current player",
+  "player Mathieu placed in 10",
+  "Sports Question 1",
+  "Question was incorrectly answered, player Mathieu gets sent to the penalty box",
+  "next player is Thomas",
+]
+`;
